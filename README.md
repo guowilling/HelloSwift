@@ -1,3 +1,4 @@
+# LearnSwiftSyntax
 
 This repo introduces the basic syntax of Swift.
 
