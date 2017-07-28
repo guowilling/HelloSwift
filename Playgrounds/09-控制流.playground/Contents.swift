@@ -2,7 +2,8 @@
 
 import UIKit
 
-/// for in 循环
+/// for in
+
 for num in 1...5 { // 依次把闭区间 [1, 5] 中的值赋值给 num
     print(num)
 }
@@ -18,24 +19,27 @@ for char in chars {
 
 let charDict = ["0": "A", "1": "B", "2": "C"]
 for (key, value) in charDict {
-    print("key: \(key), value: \(value).")
+    print("key: \(key), value: \(value)")
 }
 
-/// while 循环
+/// while
+
 var num = 3
 while num > 0 {
     print(num)
     num = num - 1
 }
 
-/// repeat while 循环
-num = 3
-repeat { // 第一次即使条件不满足也会进入 { }
+/// repeat while
+
+num = -3
+repeat { // 第一次即使条件不满足也会进入 { } 中的代码
     print(num)
     num = num - 1
-}while num < 0
+} while num > 0
 
-/// if 条件语句
+/// if
+
 num = 5
 if num == 3 {
     print(num)
@@ -51,12 +55,13 @@ if num == 3 {
     print(num)
 }
 
-// switch语句
+/// switch
+
 num = 12
 switch num {
 case 2:
-    print("num等于2") // case 分支至少需要包含一条语句, case 分支末尾不需要写 break
-case 3, 4, 5: // case 可以匹配多个值之间用 ',' 隔开
+    print("num 等于 2") // case 分支至少需要包含一条语句, case 分支末尾不需要写 break
+case 3, 4, 5: // case 可以匹配多个值, 值之间用 ',' 隔开
     print("num == 3 or 4 or 5")
 case 6..<10: // case 也支持区间
     print("6 <= num < 10")
@@ -66,7 +71,8 @@ default:
     print("上面的情况都不满足")
 }
 
-/// 控制转移语句
+/// continue
+
 num = 5
 while num > 0 {
     num = num - 1
@@ -75,6 +81,8 @@ while num > 0 {
     }
     print(num)
 }
+
+/// break
 
 num = 5
 while num > 0{
@@ -87,6 +95,8 @@ while num > 0{
 
 // continue 与 break 的区别: continue 是终止本次循环开始下一次循环, 不会离开整个循环体; break 是终止整个循环, 会离开当前循环体.
 
+/// fallthrough
+
 num = 2
 switch num {
 case 2:
@@ -98,30 +108,29 @@ default:
     print("!")
 }
 
+/// 循环体标签
 
-/// 给循环语句设置一个标签, 方便终止循环
 var num2 = 4
-num = 6
-numLoop: while num > 0 {
+var num1 = 6
+numLoop: while num1 > 0 { // 给循环语句设置标签, 方便终止该循环体
     num2Loop: while num2 > 0 {
         print(num2)
         break numLoop
     }
-    print(num) // 无打印
+    print(num1) // 不会打印
 }
 
-
 /// guard
-num2 = 5
+
+num2 = 2
 func guardTest() {
-    guard num2 == 5 else { // 如果 guard 条件不满足会执行 else 后面的 { }
+    guard num2 == 5 else { // 如果 guard 条件不满足则执行 else 后面 { } 中的代码
         print(num2)
         return
     }
     print(num2) // Use num2 Here!
 }
 guardTest()
-
 
 // 系统版本适配(平台可以是: iOS macOS watchOS tvOS)
 if #available(iOS 10, *) {

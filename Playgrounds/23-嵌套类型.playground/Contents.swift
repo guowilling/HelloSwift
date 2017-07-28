@@ -2,10 +2,9 @@
 
 import UIKit
 
-// 类型嵌套: 可以在允许类型嵌套的类型中嵌套类, 结构体, 枚举并且支持多层嵌套
+/// 类型嵌套: 可以在允许类型嵌套的类型中嵌套类, 结构体, 枚举并且支持多层嵌套
 
-
-/// 值类型的嵌套
+// 值类型的嵌套
 struct NestedStruct {
     enum enumType1: Character { // 结构体中嵌套枚举
         case enumValue1 = "A", enumValue2 = "B", enumValue3 = "C"
@@ -19,14 +18,13 @@ struct NestedStruct {
         }
     }
 }
-// 枚举和结构体都是值类型, 可以直接通过类名称调用
 print(NestedStruct.enumType1.enumValue2.rawValue)
 print(NestedStruct.enumType2.Values.num.num2.rawValue)
+// 枚举和结构体都是值类型, 可以直接通过类名称调用
 
-
-/// 引用类型的嵌套
+// 引用类型的嵌套
 class ClassType1 {
-    class ClassType2 {
+    class ClassType2 { // 引用类型中嵌套引用类型
         func hello() -> String {
             return "Hello"
         }
@@ -40,7 +38,6 @@ class ClassType1 {
         }
     }
 }
-// 引用类型嵌套也是在类名前面加外部类型的类名
-let someClass = ClassType1.ClassType2()
+let someClass = ClassType1.ClassType2() // 引用类型嵌套也是在类名前面加外部类型的类名
 print(someClass.hello())
 print(ClassType1.enumType2.Values.num.num1.rawValue)

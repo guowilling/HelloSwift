@@ -2,38 +2,45 @@
 
 import UIKit
 
-/// 字典: 每个元素都是一个键值对(key: value)
+/// 字典: 键值对(key: value)
 
-var chars: [String: String] = ["char1":"A", "char2":"B"] // 键和值都是 String 类型
-var charDict = ["char1":"A", "char2":"B"]  // 系统会作自动推断类型
+var stringDict1: [String: String] = ["char1":"A", "char2":"B"] // 键和值都是 String 类型
 
-chars.count
-chars.isEmpty
-chars["char3"] = "C"                       // 添加一个键值对
-chars["char1"] = "a"                       // 修改 key 对应的 value
+var stringDict2 = ["char1":"A", "char2":"B"] // 自动推断类型
 
-chars.updateValue("b", forKey: "char2")    // 更新键值对, 如果这个键不存在则是添加
+stringDict1.count
 
-print(chars)
+stringDict1.isEmpty
 
-chars["char2"]                             // 通过字典的 key 访问 value
-chars["char3"] = nil                       // 移除键值对
-chars.removeValue(forKey: "char2")         // 移除键值对
-print(chars)
+stringDict1["char3"] = "C" // 如果 key 不存在, 则是添加一个键值对
 
+stringDict1["char1"] = "a" // 如果 key 存在, 则是修改一个键值对
 
-for (key, value) in charDict {             // 遍历字典
+stringDict1.updateValue("b", forKey: "char2") // 更新一个键值对, 如果 key 不存在, 则是添加
+
+print(stringDict1)
+
+stringDict1["char2"] // 通过字典的 key 访问 value
+
+stringDict1["char3"] = nil // 移除 key 对应的键值对
+stringDict1.removeValue(forKey: "char2")
+
+print(stringDict1)
+
+for (key, value) in stringDict2 { // 遍历字典
     print("\(key): \(value)")
 }
-for key in charDict.keys {                 // 遍历字典中所有的 key
+
+for key in stringDict2.keys { // 遍历字典中所有的 key
     print(key)
 }
 
-for value in charDict.values {             // 遍历字典中所有的 value
+for value in stringDict2.values { // 遍历字典中所有的 value
     print(value)
 }
 
-let arrKeys = [String](charDict.keys)      // 获取字典中所有的 key
+let arrKeys = [String](stringDict2.keys) // 获取字典中所有的 key
 print(arrKeys)
-let arrValues = [String](charDict.values)  // 获取字典中所有的 value
+
+let arrValues = [String](stringDict2.values) // 获取字典中所有的 value
 print(arrValues)

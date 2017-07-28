@@ -4,37 +4,36 @@ import UIKit
 
 /// 枚举: 相关的一组值定义成共同的类型
 
-enum enumName {                        // Swift 枚举的语法格式, 可以不指定成员类型
-    case caseName                      // 使用 case 定义枚举成员值
+enum enumName { // Swift 枚举的语法格式, 可以不指定成员类型
+    case caseName // 使用 case 定义枚举成员值
 }
 
-enum compassPoint {                    // 枚举定义指南针的四个方向
-    case North                         // 枚举成员不会像 ObjC 进行隐式赋值
+enum compassPoint { // 枚举定义指南针的四个方向
+    case North // 枚举成员不会像 ObjC 进行隐式赋值
     case South
     case East
     case West
 }
 
 enum compassPoint2 {
-    case North, South, East, West      // 枚举成员也可以这样定义
+    case North, South, East, West // 枚举成员也可以这样定义
 }
 
-var direction = compassPoint.North     // direction 为 compassPoint 类型
-direction = .West                      // 类型确定之后可以有简略的写法
+var direction = compassPoint.North // direction 为 compassPoint 类型
+direction = .West // 类型确定之后可以有简略的写法
 
-
-/// 使用 switch 语句匹配枚举值
+// 使用 switch 语句匹配枚举值
 direction = .East
-switch direction {                     // 省略 defoult 必须穷举所有情况
+switch direction { // 如果省略 default 则必须穷举所有值
 case .North:
     print("NORTH")
 case .South:
     print("SOUTH")
 default:
-    print("EAST AND WEST")             // EAST AND WEST
+    print("EAST AND WEST") // EAST AND WEST
 }
 
-/// 关联值: 枚举可以存储和修改不同类型的关联值
+// 关联值: 枚举可以存储和修改不同类型的关联值
 enum Person {
     case Location(Double, Double)
     case Name(String)
@@ -45,15 +44,14 @@ p1 = .Name("Joan")
 
 // Tips: 同一时间只能存储一个值
 
-
 switch p1 {
 case .Location(let x, let y):
-    print("X:\(x),Y:\(y)")
+    print("X: \(x),Y: \(y)")
 case .Name(let name):
     print(name)
 }
 
-/// 原始值: 可以给枚举成员设置默认填充值, 但类型必须一致
+// 原始值: 可以给枚举成员设置默认填值, 但类型必须保持一致
 enum ASCIIChar: Character { // 枚举成员类型: Character
     case Tab = "\t"
     case LineFeed = "\n"
@@ -67,7 +65,7 @@ enum Mouth: Int { // 枚举成员类型: Int
 }
 print(Mouth.January.rawValue) // 如果不设置默认值, 则为 0
 
-// Tips: 如果想要像 ObjC 的枚举设置隐式赋值, 可以设置枚举成员类型为 Int
+// Tips: Swift 中如果想要像 ObjC 的枚举类型设置隐式值, 可以设置枚举成员类型为 Int
 
 enum Direct: String { // 枚举成员类型: String
     case North
@@ -77,21 +75,21 @@ enum Direct: String { // 枚举成员类型: String
 }
 print(Direct.North.rawValue)
 
-/// 使用原始值初始化枚举实例, 获得的是一个可选类型
+// 使用原始值初始化枚举实例, 得到的是一个可选类型
 let secondMonth = Mouth(rawValue: 2)
 print(secondMonth)
 
-
-/// 递归枚举创建表达式: (5 + 4) * 2
+// 递归枚举创建表达式
 enum Arth {
     case Number(Int)
-    indirect case Add(Arth, Arth)      // indirect 表示枚举成员可递归
+    indirect case Add(Arth, Arth) // indirect 表示枚举成员可递归
     indirect case Mul(Arth, Arth)
 }
 let five = Arth.Number(5)
 let four = Arth.Number(4)
 let sum = Arth.Add(five, four)
-let result = Arth.Mul(sum, Arth.Number(2))
+let result = Arth.Mul(sum, Arth.Number(2)) // (5 + 4) * 2
+print(result)
 
 func evaluate(express: Arth) -> Int {
     switch express {
@@ -103,5 +101,4 @@ func evaluate(express: Arth) -> Int {
         return evaluate(express: left) * evaluate(express: right)
     }
 }
-print(result)
 print(evaluate(express: result))
