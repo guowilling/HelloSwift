@@ -16,8 +16,8 @@ class Home {
     var numberOfRooms = 1
 }
 
-let testPerson = Person()                          // p1 有一个为 nil 的 home 属性
-//let roomCount = testPerson.home!.numberOfRooms   // 如果使用 '!' 强制解包会报错: unexpectedly found nil while unwrapping an Optional value
+let testPerson = Person()                           // p1 有一个为 nil 的 home 属性
+//let roomCount = testPerson.home!.numberOfRooms    // 如果使用 '!' 强制解包会报错: unexpectedly found nil while unwrapping an Optional value
 
 if let roomCount = testPerson.home?.numberOfRooms { // 使用 '?' 来代替 '!'
     print(roomCount)

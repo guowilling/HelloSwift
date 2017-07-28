@@ -3,11 +3,11 @@
 import UIKit
 
 /// for in 循环
-for num in 1...5 {                    // 依次把闭区间 [1, 5] 中的值赋值给 num
+for num in 1...5 { // 依次把闭区间 [1, 5] 中的值赋值给 num
     print(num)
 }
 
-for _ in 1...5 {                      // _ 省略变量名
+for _ in 1...5 { // _ 省略变量名
     print("A")
 }
 
@@ -30,7 +30,7 @@ while num > 0 {
 
 /// repeat while 循环
 num = 3
-repeat {                               // 第一次即使条件不满足也会进入 { }
+repeat { // 第一次即使条件不满足也会进入 { }
     print(num)
     num = num - 1
 }while num < 0
@@ -55,12 +55,12 @@ if num == 3 {
 num = 12
 switch num {
 case 2:
-    print("num等于2")                // case 分支至少需要包含一条语句, case 分支末尾不需要写 break
-case 3, 4, 5:                       // case 可以匹配多个值之间用 ',' 隔开
+    print("num等于2") // case 分支至少需要包含一条语句, case 分支末尾不需要写 break
+case 3, 4, 5: // case 可以匹配多个值之间用 ',' 隔开
     print("num == 3 or 4 or 5")
-case 6..<10:                        // case 也支持区间
+case 6..<10: // case 也支持区间
     print("6 <= num < 10")
-case 10..<19 where num % 3 == 0:    // 使用 where 语句来增加额外判断条件
+case 10..<19 where num % 3 == 0: // 使用 where 语句来增加额外判断条件
     print("10 <= num < 19, 且能被3整除")
 default:
     print("上面的情况都不满足")
@@ -91,7 +91,7 @@ num = 2
 switch num {
 case 2:
     print("Hello")
-    fallthrough                     // 使用 fallthrough 可以连续到下一个 case
+    fallthrough // 使用 fallthrough 可以连续到下一个 case
 case 3:
     print("World")
 default:
@@ -107,18 +107,18 @@ numLoop: while num > 0 {
         print(num2)
         break numLoop
     }
-    print(num)                      // 无打印
+    print(num) // 无打印
 }
 
 
 /// guard
 num2 = 5
 func guardTest() {
-    guard num2 == 5 else {        // 如果 guard 条件不满足会执行 else 后面的 { }
+    guard num2 == 5 else { // 如果 guard 条件不满足会执行 else 后面的 { }
         print(num2)
         return
     }
-    print(num2)                   // Use num2 Here!
+    print(num2) // Use num2 Here!
 }
 guardTest()
 
