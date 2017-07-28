@@ -22,16 +22,16 @@ pi = Double(three) + pointOneFour // 只有类型一致才能操作, 转换格�
 
 let piInt = Int(pi) // Double 转 Int, 系统自动忽略小数点后面的数, 会损失精度
 
-let trueValue = true // Bool 两种类型: true false
-let falseValue = false // 在循环或选择语句的条件判断中只能使用 Bool 值
+// Bool 类型: true 或 false
+let trueValue = true
+let falseValue = false
 
+// Swift 中循环或选择语句的条件判断只能是 Bool 类型值
 let i = 10
-
 //if i { // ❌ 编译报错: i 不是 bool 类型
 //    print(i)
 //}
-
-if i == 10 { // ✅ i == 10 返回一个 Bool 类型
+if i == 10 { // ✅ i == 10 返回一个 Bool 类型值
     print(i)
 }
 
