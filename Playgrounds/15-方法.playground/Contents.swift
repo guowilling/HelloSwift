@@ -93,6 +93,7 @@ SomeStruct.printSome()
 
 class Level {
     static var commonLevel = 1 // 公共等级
+    
     class func addOneLevel() { // class 关键字修饰的方法是类型方法, 该方法允许子类重写
         commonLevel += 1
     }

@@ -30,9 +30,9 @@ protocol FullyNamed {
     var fullName: String { get }
 }
 
-struct Person: FullyNamed { // Person 遵守 FullyNamed 协议表示必需要实现 fullName 属性
+struct Person: FullyNamed { // Person 遵守 FullyNamed 协议表示需要实现 fullName 属性
     var name: String
-    var fullName: String { // fullName 属性实现为只读的
+    var fullName: String { // fullName 属性实现为只读
         return "Barack Hussein \(name)"
     }
 }
@@ -56,7 +56,7 @@ class RandomNumGenerator: RandomNum {
 let aRandomNum = RandomNumGenerator()
 print(aRandomNum.random())
 
-// mutating 关键字在协议中的应用: 结构体和枚举即值类型的实例方法中, 不能直接修改其实例属性, 需要在其方法前面加 mutating 关键字
+// mutating 关键字在协议中的应用: 结构体和枚举, 即值类型的实例方法中, 不能直接修改实例属性, 需要在其方法前面加 mutating 关键字
 protocol toggleProtocol {
     mutating func toggle() // 需要结构体和枚举遵守的协议方法, 需要添加 mutating 关键字
 }
@@ -82,12 +82,12 @@ protocol SomeProtocol4 {
 }
 
 class SomeInitClass: SomeProtocol4 {
-    required init(someParameter: Int) { // 遵守协议的构造器都必须在前面添加 required 修饰符, 来确保所有子类都实现此构造器
+    required init(someParameter: Int) { // 构造器都必须在前面添加 required 修饰符, 来确保所有子类都实现此构造器
         // 构造器的实现...
     }
 }
 
-// 协议作为类型使用: 可以作为函数, 方法, 构造器中的参数类型或返回值类型, 作为常量变量或属性的类型, 作为数组字典或其他容器中元素的类型
+// 协议作为类型使用: 可以作为函数, 方法, 构造器中的参数类型或返回值类型, 作为常量变量或属性的类型, 作为数组字典或其他容器元素的类型
 class Dice {
     let generator: RandomNum // 协议类型的存储属性
     init(generator: RandomNum) {
@@ -104,7 +104,7 @@ class RandomNumGenerator1: RandomNum { // 定义一个类遵守 RandomNum 协议
     }
 }
 
-var d6 = Dice(generator: RandomNumGenerator1()) // 就可以将遵守 RandomNum 协议的类创建的对象当作参数了
+var d6 = Dice(generator: RandomNumGenerator1()) // 就可以将遵守 RandomNum 协议的类, 创建的对象当作参数了
 print(d6.roll())
 
 
@@ -146,9 +146,7 @@ extension Nanny: SomeProtocol5 { // 扩展中遵守协议的效果和原始类�
 
 // 通过扩展遵守协议: 当一个类实现了协议中的方法, 却还没有遵守该协议时, 可以通过空扩展体来遵守该协议
 protocol SomeProtocol6 {
-    var description: String {
-        get
-    }
+    var description: String { get }
 }
 
 struct Cat { // 并没有遵守协议

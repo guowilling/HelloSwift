@@ -26,7 +26,7 @@ swapTwoValues(a: &someInt, &anotherInt) // 调用函数时编译器会根据实�
 
 var StringA = "A"
 var StringB = "B"
-swapTwoValues(a: &StringA, &StringB)    // 只要传入任何相同的类型都可以
+swapTwoValues(a: &StringA, &StringB) // 传入任何相同的类型都可以
 print("StringA: \(StringA), StringB: \(StringB)")
 
 // 类型参数:
@@ -120,11 +120,10 @@ struct NewStack<Element>: Container {
 // where: 约束泛型的类型参数
 // where 语句指定 C1 和 C2 的类型必须一致, 且 C1 遵循 Equatable 协议
 func allItemMatch<C1: Container, C2: Container>(_ someContainer: C1, _ anotherContainer: C2) -> Bool where C1.ItemType == C2.ItemType, C1.ItemType: Equatable {
-    
     if someContainer.count != anotherContainer.count { // 两个容器是否含有相同数量的元素
         return false
     }
-    for i in 0..<someContainer.count { // 两个容器的每个元素是否相等
+    for i in 0..<someContainer.count { // 两个容器的元素是否完全相等
         if someContainer[i] != anotherContainer[i] {
             return false
         }
@@ -143,5 +142,5 @@ arrayOfString.items = ["A", "B", "C"]
 if allItemMatch(stackOfString, arrayOfString) {
     print("两个容器的元素全部匹配")
 } else {
-    print("元素不全部匹配")
+    print("两个容器的元素不全部匹配")
 }

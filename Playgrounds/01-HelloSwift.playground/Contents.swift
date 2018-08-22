@@ -2,4 +2,4 @@
 
 import UIKit
 
-print("Hello, Swift.") // Swift 中代码语句的结尾省略分号 ';'
+print("Hello, Swift.") // Swift 中代码语句的结尾省略 ';'
