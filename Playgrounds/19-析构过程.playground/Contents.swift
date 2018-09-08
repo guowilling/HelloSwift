@@ -8,7 +8,7 @@ import UIKit
 
 class SomeClass {
     deinit { // 析构器只能定义在类中
-        // ... // 子类继承父类, 也就继承了父类的析构器
+        // ... // 子类继承自父类, 也就继承了父类的析构器
     } // deinit 相当于 ObjC 的 dealloc
 }
 

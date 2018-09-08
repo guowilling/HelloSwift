@@ -19,7 +19,7 @@ position1.x = 20 // 变量存储属性可以修改
 
 let position2 = Location(x: 20.2, y:30.3 ) // 实例赋值给常量
 //position2.x = 22.22 // ❌ 编译报错: 变量属性也不可修改
-// 原因: 结构体属于值类型, 当值类型被声明为常量的时候, 其所有属性都是常量
+// 原因: 结构体是值类型, 值类型被声明为常量的时候, 其所有属性都是常量
 
 class Address {
     let city = "Hangzhou"
@@ -27,7 +27,7 @@ class Address {
 }
 let address1 = Address() // 实例赋值给常量
 address1.town = "CangQian" // 变量属性仍然可变
-// 原因: 类是引用类型, 引用类型赋值给常量的时候, 仍可以修改该实例的变量属性
+// 原因: 类是引用类型, 引用类型被声明为常量的时候, 仍可以修改变量属性
 
 // 延迟加载存储属性, 关键字: lazy
 class Data {
@@ -36,12 +36,12 @@ class Data {
 }
 
 class DataManger {
-    lazy var data = Data() // 使用 'lazy' 第一次访问的时候才会创建, 延时加载只能修饰变量因为常量需要初始值
+    lazy var data = Data() // 使用 'lazy' 第一次访问的时候才会创建, 延时加载只能修饰变量, 因为常量需要初始值
     // 数据操作...
 }
 
 let manager = DataManger() // 创建实例的时候并没有创建 data 实例
-manager.data // 此时才会创建 data实例, 执行耗时的数据加载
+manager.data // 此时才会创建 data 实例, 执行耗时的数据加载
 // Tips: 如果 'lazy' 修饰的属性没有被初始化就被多个线程访问, 则会被初始化多次
 
 // 计算属性: 不直接存储值而是提供了 set 和 get 方法
@@ -79,9 +79,11 @@ class StepCounter {
     var totalSteps: Int = 0 { // 一定要设置初始值
         willSet { // willSet 在新值被设置之前调用
             print(newValue)
+            print(totalSteps)
         }
         didSet(oldSteps) { // didSet 在新值被设置之后调用
             print(oldSteps)
+            print(totalSteps)
         }
         // willSet 会将新的属性值传入 newValue 参数, didSet 会将旧的属性值传入 oldSteps
     }
@@ -97,17 +99,17 @@ stepCounter.totalSteps = 55 // newValue:55 oldSteps: 5
 // 实例属性: 每创建一个实例, 该实例都会拥有一套属于自己的值, 实例之间的属性相互独立
 // 类型属性: 无论创建多少个该类型的实例, 该属性都只有唯一一份
 
-struct someStruct {
+struct SomeStruct {
     static var typeProperty = "Value" // 使用 static 定义类型属性
 }
-print(someStruct.typeProperty) // 类型属性直接通过其本身来访问
-someStruct.typeProperty = "Another value" // typeProperty 为 var 类型
-print(someStruct.typeProperty)
+print(SomeStruct.typeProperty) // 类型属性直接通过其本身来访问
+SomeStruct.typeProperty = "Another value" // typeProperty 为 var 类型
+print(SomeStruct.typeProperty)
 
-class someClass {
+class SomeClass {
     static var typeProperty = "Value"
     static var computedTypeProperty: Int {
         return 6 // 可以通过闭包返回属性值
     }
 }
-print(someClass.computedTypeProperty)
+print(SomeClass.computedTypeProperty)

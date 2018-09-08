@@ -37,14 +37,14 @@ print(sortNums5)
 
 let sortNums6 = nums.sorted(by: >) // 返回类型正好匹配
 print(sortNums6)
-// 开发中为了代码的可读性, 不提倡刻意简化的代码, 应该保证代码的易读性
+// 开发中为了代码的可读性, 不提倡刻意简化代码, 应该保证代码的易读性
 
 // 尾随闭包: 调用函数时传递的闭包参数, 写在函数括号之后
 func funcTakeClosure(closure: () -> Void) {
     // ...
 }
 
-funcTakeClosure(closure: { // 不使用尾随闭包进行函数调用
+funcTakeClosure(closure: { // 不使用尾随闭包调用函数
     // ...
 })
 
@@ -128,7 +128,7 @@ var names = ["Chars", "Alex", "Olliver", "Barry"]
 names.count // 4
 let customerP = { names.remove(at: 0) } // 定义一个自动闭包, 移除第一个元素
 names.count // 4, 闭包没调用, 元素个数没变
-customerP() // 执行闭包, 返回 "Chars"
+let ele0 = customerP() // 执行闭包, 返回 "Chars"
 names.count // 3
 
 func serve(customerP: () -> String) { // 闭包参数

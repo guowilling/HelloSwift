@@ -2,8 +2,8 @@
 
 import UIKit
 
-let constantString: String = "Hello" // 格式: 'let 常量名称: 字符串类型 = "字符串"'
-var variableString: String = "World" // 格式: 'var 变量名称: 字符串类型 = "字符串"'
+let constantString: String = "Hello" // 格式: let 常量名称: 字符串类型 = "字符串"
+var variableString: String = "World" // 格式: var 变量名称: 字符串类型 = "字符串"
 
 let constantInt: Int = 5 // 常用的类型有: Int Double String Bool
 var pi = 3.14 // 系统自动推断 pi 为 Double 类型
@@ -12,15 +12,15 @@ var pi = 3.14 // 系统自动推断 pi 为 Double 类型
 pi = 3.1415926 // ✅ pi 是变量, 可以再次赋值
 
 print(constantInt)
-print("π的值是: \(pi)") // 输出字符串时将常量或变量放入 '\()' 中
+print("π的值是: \(pi)") // 输出字符串时把常量或变量放入 '\()' 中
 
 let three = 3 // 按住 option, 鼠标移动到变量名上, 点击左键可以查看常量的类型
 
-var pointOneFour = 0.14 // 系统自动推断 pointOneFour 的类型为 Double
+var pointOneFive = 0.15 // 系统自动推断 pointOneFour 的类型为 Double
 
-pi = Double(three) + pointOneFour // 只有类型一致才能操作, 转换格式: 类型名(变量或常量)
+pi = Double(three) + pointOneFive // 只有类型一致才能操作, 转换格式: 类型名(变量或常量)
 
-let piInt = Int(pi) // Double 转 Int, 系统自动忽略小数点后面的数, 会损失精度
+let piInt = Int(pi) // Double 转 Int, 系统自动忽略小数点后面的数
 
 // Bool 类型: true 或 false
 let trueValue = true

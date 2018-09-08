@@ -125,7 +125,7 @@ numLoop: while num1 > 0 { // 给循环语句设置标签, 方便终止该循环�
 num2 = 2
 func guardTest() {
     guard num2 == 5 else { // 如果 guard 条件不满足则执行 else 后面 { } 中的代码
-        print(num2)
+        print(num1)
         return
     }
     print(num2) // Use num2 Here!

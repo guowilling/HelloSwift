@@ -26,7 +26,6 @@ struct Point {
         z = pointX // 常量在赋值后不能再更改
     }
 }
-
 let point = Point(fromPointX: 3.0, 3.0) // 使用自定义构造函数创建实例
 print("x: \(point.x), y: \(point.y)")
 
@@ -37,7 +36,7 @@ class List {
     var purchased = false
 }
 var item = List() // 使用默认构造函数创建实例
-print("name: \(item.name), quantity: \(item.quantity), purchased: \(item.purchased)")
+print("name: \(item.name ?? ""), quantity: \(item.quantity), purchased: \(item.purchased)")
 
 struct Size {
     var width = 0.0, height = 0.0

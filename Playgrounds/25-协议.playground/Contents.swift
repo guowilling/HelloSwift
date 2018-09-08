@@ -191,7 +191,7 @@ struct People: Name, Age { // 遵守 name, age 两个协议
     var age: Int
 }
 
-func say(to people: Name & Age) {   // 参数类型: Name & Age
+func say(to people: Name & Age) { // 参数类型: Name & Age
     print("This is \(people.name), age is \(people.age)") // This is Joan, age is 20
 }
 
@@ -276,7 +276,7 @@ counter.add() // 增加 3
 counter.add() // 增加 3
 print(counter.count)
 
-// 协议扩展: 可以通过扩展来为遵守了协议的类添加属性, 方法, 下标
+// 协议扩展: 可以通过扩展来为遵守了协议的类添加属性、方法、下标
 protocol RandomNumG {
     func random() -> Int
 }

@@ -5,7 +5,7 @@ import UIKit
 /// 方法: 完成某些特性功能的函数(结构体, 类, 枚举中都能定义方法)
 
 /// 需要通过实例调用的方法, 实例方法
-/// 可以直接通过类型名调用的方法, 类型方法
+/// 直接通过类型名调用的方法, 类型方法
 
 
 /// 实例方法: 提供访问和修改实例属性的方法
@@ -19,7 +19,7 @@ class Counter {
         count += amount
     }
     func reset() {
-        self.count = 0 // self 可省略, 表示当前实例
+        self.count = 0 // self 可省略, 表示当前的实例
     }
 }
 
@@ -31,20 +31,20 @@ print(counter.count) // 5
 counter.reset()
 print(counter.count) // 0
 
-// 结构体和枚举是值类型, 值类型的属性不能直接在实例方法中直接修改, 需要使用 mutating 关键字
+// 结构体和枚举是值类型, 值类型的属性不能直接在实例方法中修改, 需要使用 mutating 关键字
 struct Point {
     var x = 0.0, y = 0.0
-    mutating func movedByX(deltaX: Double, y deltaY: Double) { // mutating 关键字修饰的方法可以在方法中改变结构体的属性
+    mutating func movedByX(deltaX: Double, y deltaY: Double) { // mutating 关键字修饰的方法中可以改变结构体的属性
         x += deltaX
         y += deltaY
     }
 }
 var somePoint = Point(x: 1.0, y: 1.0)
-somePoint.movedByX(deltaX: 2.0, y: 3.0)     // 修改了这个点, 而不是返回新的点
+somePoint.movedByX(deltaX: 2.0, y: 3.0) // 修改了这个点, 而不是返回新的点
 print("x: \(somePoint.x), y: \(somePoint.y)")
 
 let fixedPoint = Point(x: 2.0, y: 4.0)
-//fixedPoint.movedByX(deltaX: 2.0, y: 2.0)  // ❌ 编译报错: 常量结构体类型的属性不能被改变
+//fixedPoint.movedByX(deltaX: 2.0, y: 2.0) // ❌ 编译报错: 常量结构体类型的属性不能被改变
 
 // self 代表自身, 在可变方法中给 self 赋值
 struct NewPoint {

@@ -54,4 +54,4 @@ num1.union(num2) // 合并两个 Set 的所有元素
 
 num1.subtracting(num2) // 只在 num1 中的元素
 
-num1.symmetricDifference(num2) // 不同时在两个集合中, 但在某一个集合中的元素
+num1.symmetricDifference(num2) // 不同时在两个集合中, 但在其一个集合中的元素

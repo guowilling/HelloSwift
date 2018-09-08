@@ -56,4 +56,4 @@ var stringOfEdit = ChangedString()
 stringOfEdit.value = "AB"
 stringOfEdit.value = "CD"
 print(stringOfEdit.numberOfEdits)
-//stringOfEdit.numberOfEdits = "XY"  // ❌ numberOfEdits 属性的 set 方法限制类型为 private, cannot assign to property: 'numberOfEdits' setter is inaccessible
+//stringOfEdit.numberOfEdits = "XY" // ❌ numberOfEdits 属性的 set 方法限制类型为 private, cannot assign to property: 'numberOfEdits' setter is inaccessible

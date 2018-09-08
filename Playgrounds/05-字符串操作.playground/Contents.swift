@@ -13,7 +13,7 @@ let emptyString2 = String() // 通过 String() 初始化方法创建空字符串
 
 emptyString2.isEmpty // 通过 isEmpty 方法判断是否为空
 
-emptyString1 = "ABC" // 变量字符串可变
+emptyString1 = "A B C" // 变量字符串可变
 //emptyString2 = "Change Constant String" // 常量字符串不可变
 
 for char in emptyString1.characters { // 遍历字符串
@@ -43,10 +43,12 @@ messages.characters.count
 let firstIndex = messages.startIndex
 let firstChar = messages[firstIndex]
 let secondIndex = messages.index(after: messages.startIndex)
+let secondChar = messages[secondIndex]
 
 let endIndex = messages.endIndex
 //messages[messages.endIndex] // ❌ 崩溃: Can't form a Character from an empty String
 let lastIndex = messages.index(before: endIndex)
+let lastChar = messages[lastIndex]
 
 let offsetIndex = messages.index(firstIndex, offsetBy: 5)
 let offsetChar = messages[offsetIndex]
@@ -58,7 +60,7 @@ var welcome = "Hello"
 
 welcome.insert("!", at: welcome.endIndex) // '!'插入 welcome 的末尾
 
-welcome.insert(contentsOf: "World".characters, at: welcome.index(before: welcome.endIndex)) // 插入的内容是: "world".characters
+welcome.insert(contentsOf: "World".characters, at: welcome.index(before: welcome.endIndex)) // 插入的内容是: "World".characters
 
 /// 字符串的删除
 

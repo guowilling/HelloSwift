@@ -4,9 +4,9 @@ import UIKit
 
 /// 字典: 键值对(key: value)
 
-var stringDict1: [String: String] = ["char1":"A", "char2":"B"] // 键和值都是 String 类型
+var stringDict1: [String: String] = ["char1": "A", "char2": "B"] // 键和值都是 String 类型
 
-var stringDict2 = ["char1":"A", "char2":"B"] // 自动推断类型
+var stringDict2 = ["char1": "A", "char2": "B"] // 自动推断类型
 
 stringDict1.count
 

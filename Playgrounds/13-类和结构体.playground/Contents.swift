@@ -2,7 +2,7 @@
 
 import UIKit
 
-/// 类和结构体有相同的语法规则都可以定义属性和添加方法来扩展功能
+/// 类和结构体有相同的语法规则, 都可以定义属性和添加方法来扩展功能
 
 /**
  类和结构体的共同点:
@@ -61,6 +61,7 @@ print(someVideoMode.resolution.height) // 访问结构体属性
 let initRes1 = Resolution(width: 64, height: 48) // 结构体设置属性的默认构造器
 print("\(initRes1.width)")
 print("\(initRes1.height)")
+
 // 类没有默认构造器需要自己定义
 
 // 结构体和枚举是值拷贝
@@ -87,7 +88,7 @@ videoM1.name = "VideoM1"
 var videoM2 = videoM1 // videoM1 传递的是一个引用, videoM2 也指向 videoM1 指向的那块存储空间
 videoM2.name = "videoM2"
 print(videoM1.name!)
-print(videoM2.name!) // videoM2 的属性改变会影响带 videoM1
+print(videoM2.name!) // videoM2 的属性改变会影响 videoM1
 
 print(videoM1 === videoM2) // 使用 "===" 判断两个引用是否指向同一个对象
 
@@ -109,4 +110,4 @@ print(videoM1 === videoM2) // 使用 "===" 判断两个引用是否指向同一�
  4.需要用到引用拷贝
  */
 
-// Tips: String Array Dictionary 的底层都是通过结构体实现的, 所以它们在被赋值的时候都是通过值拷贝, 但是 Swift 在内部做了性能优化, 只有在必要的时候才会进行值拷贝.
+// Tips: String Array Dictionary 的底层都是通过结构体实现的, 所以它们在赋值的时候都是值拷贝, 但是 Swift 在内部做了性能优化, 只有在必要的时候才会进行值拷贝.

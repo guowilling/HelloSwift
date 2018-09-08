@@ -8,11 +8,11 @@ class Vehicle { // 机动车父类
     var currentSpeed = 5.0 // 速度属性
     var description: String { // 描述速度的只读计算属性
         get {
-            return "\(currentSpeed)公里/每小时"
+            return "\(currentSpeed) 公里/每小时"
         }
     }
     func makeNoise() {
-        // 空实现, 给子类重写
+        // 空实现, 子类重写
     }
 }
 

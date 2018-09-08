@@ -6,8 +6,8 @@ import UIKit
 
 // 处理错误的几种方式:
 // 1.将错误传递给调用函数然后使用 do catch 语句处理错误
-// 2.将错误作为可选类型处理
-// 3.使用断言处理
+// 2.将错误作为可选类型
+// 3.使用断言
 
 enum CustomErrorType: Error { // 通过枚举定义错误状态
     case errorReason1
@@ -40,8 +40,10 @@ do {
     print("errorReason1")
 } catch CustomErrorType.errorReason2 {
     print("errorReason2")
-} catch { // catch 没有指定类型可以匹配任何错误
+} catch CustomErrorType.errorReason3 {
     print("errorReason3")
+} catch {
+    print("errorReason") // catch 没有指定类型可以匹配任何错误
 }
 
 func someThrowingFunc(num: Int) throws -> Int {
@@ -87,4 +89,4 @@ var age = 3
 // 格式: assert(布尔表达式, "控制台输出内容")
 assert(age > 0, "年龄不符合逻辑") // 布尔表达式为 true 程序继续执行
 age = -5
-//assert(age > 0, "这个年龄不符合逻辑") // 布尔表达式为 false 时会使程序崩溃并在控制台输出内容
+//assert(age > 0, "年龄不符合逻辑") // 布尔表达式为 false 时会使程序崩溃并在控制台输出内容

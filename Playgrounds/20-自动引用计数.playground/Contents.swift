@@ -2,7 +2,7 @@
 
 import UIKit
 
-/// ARC(Auto Reference Counteting)自动引用计数: Swift 通过 ARC 来自动管理内存
+/// ARC(Auto Reference Counting)自动引用计数: Swift 通过 ARC 来自动管理内存
 
 // 工作机制: 为了保证实例在使用的过程中不被销毁, ARC 会自动计算一个实例被引用的次数, 只要引用次数不等于0, 该实例就不会被销毁
 
@@ -75,7 +75,7 @@ class OtherPeople {
     }
     var apartment: OtherApartment?
     deinit {
-        print("\(name) 被销毁")
+        print("OtherPeople 被销毁")
     }
 }
 
@@ -87,7 +87,7 @@ class OtherApartment {
     }
     weak var tenant: OtherPeople? // weak 关键字表示该变量为弱引用
     deinit {
-        print("\(unit) 被销毁")
+        print("OtherApartment 被销毁")
     }
 }
 
@@ -107,7 +107,7 @@ class Dog {
         self.name = name
     }
     deinit {
-        print("\(name) 被销毁")
+        print("Dog 被销毁")
     }
 }
 
@@ -169,7 +169,7 @@ class Element {
         if let text = self.text {
             return "\(self.name), \(text)"
         } else {
-            return "\(self.name)"
+            return "\(self.name), Mr X"
         }
     }
     
@@ -178,7 +178,7 @@ class Element {
         self.text = text
     }
     deinit {
-        print("\(name) 被销毁")
+        print("Element 被销毁")
     }
 }
 

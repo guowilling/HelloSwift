@@ -17,13 +17,13 @@ print(errorCode) // nil
 
 /// Swift 中 nil 的含义: nil 是一个值, 表示常量或变量的缺失, 所以任何类型都可以赋值为 nil
 
-var errorMessage: String? // 变量声明为可选类型, 且没赋初值会被默认赋值为 nil
+var errorMessage: String? // 变量声明为可选类型, 且没有赋初值时默认为 nil
 
 errorCode = 404
 
 // if 语句强制解析
 if errorCode != nil { // 确定可选类型有值后, 可以在变量名后加 '!' 强制解析
-    print(errorCode!) // 404
+    print(errorCode!) // 输出 404
 }
 //print(errorMessage!) // ❌ 崩溃: unexpectedly found nil while unwrapping an Optional value
 
@@ -39,7 +39,7 @@ if let code = errorCode {
 /// 隐式解析可选类型: 因为一定有值所以可以免去解析的麻烦
 
 let assumedString: String! = "ABC" // 可选类型的 '?' 改成 '!'
-print(assumedString) // ABC
+print(assumedString)
 if let TempString = assumedString { // 隐式解析可选类型可以当做普通可选类型使用
     print(TempString) // ABC
 }

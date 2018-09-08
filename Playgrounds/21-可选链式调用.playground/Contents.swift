@@ -3,7 +3,7 @@
 import UIKit
 
 /// 可选链式调用可以在当前值为 nil 的情况下, 调用属性, 方法, 下标
-/// 如果可选值有值那么调用成功, 如果没有值那么调用失败
+/// 如果可选值有值则调用成功, 如果没有值则调用失败
 /// 也可以是多个调用连接在一起, 如果其中有一个节点为 nil, 整个调用链都会调用失败返回 nil
 
 
@@ -28,7 +28,7 @@ if let roomCount = testPerson.home?.numberOfRooms { // 使用 '?' 来代替 '!'
 testPerson.home = Home()
 if let roomCount = testPerson.home?.numberOfRooms { // 可选链式调用返回的是一个可选类型
     print(roomCount)
-}else {
+} else {
     print("home is nil")
 }
 
@@ -103,16 +103,16 @@ if let identifier = jone.residence?.address?.buildingIdentifier() {
     print(identifier) // Optional("22") Optional("Acacia Road")
 }
 
-jone.residence?.rooms = [Room(name: "Jones"), Room(name: "Johns")] // 添加两个房间名称
+jone.residence?.rooms = [Room(name: "Jones"), Room(name: "Snows")] // 添加两个房间名称
 if let firstRoomName = jone.residence?[0].name { // 通过可选链式调用访问下标
     print(firstRoomName) // Jones
 }
 
 // 多层可选链式调用: 
 // 通过可选链式调用非可选类型, 会返回一个可选类型
-// 通过可选链式调用可选类型, 返回的依然还是可选类型
+// 通过可选链式调用可选类型, 返回的依然是可选类型
 if let joneStreet = jone.residence?.address?.street { // 任何一个属性为 nil 调用都会失败
-    print(joneStreet) // joneStreet
+    print(joneStreet) // Acacia Road
 }
 
 // 方法的可选返回值上进行可选链式调用: 直接在方法的返回值上加 '?'

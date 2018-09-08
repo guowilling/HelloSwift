@@ -2,7 +2,7 @@
 
 import UIKit
 
-/// 下标: 定义在类, 结构体, 枚举中可以快速访问集合列表序列
+/// 下标: 定义在类, 结构体, 枚举中可以快速访问集合元素
 
 // 语法定义:
 //subscript(index: Int) -> Int {
@@ -42,3 +42,4 @@ var matrix = Matrix(rows: 2, columns: 3)
 matrix[1, 1] = 5 // 调用下标的 set 和 get 方法
 print(matrix.rows)
 print(matrix.columns)
+print(matrix[1, 1])
